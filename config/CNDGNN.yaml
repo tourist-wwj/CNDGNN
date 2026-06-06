@@ -81,7 +81,7 @@ squirrelf:
 
 romanempire:
   first_fit:
-    lr: 0.07 #0.07
+    lr: 0.075 #0.075
     l2_coef: 0.00005
     layers: 5 #5
     dropout: 0.1 #0.1
@@ -112,7 +112,7 @@ amazonratings:
     lr: 0.013  #0.013
     l2_coef: 0.000005
     layers: 3 #3
-    dropout: 0.2 #0.2
+    dropout: 0.3 #0.3
     variant: False
     structure_info: True
     patience: 500 #500  
@@ -232,7 +232,7 @@ wikics:
     lr: 0.007 #0.007
     l2_coef: 0.0000005
     layers: 1 #1
-    dropout: 0.2 #0.2
+    dropout: 0.3 #0.3
     variant: True
     structure_info: True
     patience: 200 #200
