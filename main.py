@@ -101,9 +101,19 @@ def main():
     entropy_th_1, prob_th_1 = threshold_map_1.get(args.dataset)
     entropy_th_2, prob_th_2 = threshold_map_2.get(args.dataset)
     entropy_th_3, prob_th_3 = threshold_map_3.get(args.dataset)
-    tao_1 = 0.8 #0.85 for squirrelf,0.6 for flickr,0.8 for others
-    tao_2 = 0.8 
-    tao_3 = 0.8
+    tao_map = {
+    'chameleonf': 0.8,
+    'squirrelf': 0.85,
+    'romanempire': 0.8,
+    'amazonratings': 0.8,
+    'flickr': 0.6,
+    'photo': 0.8,
+    'wikics': 0.8,
+    'pubmed': 0.8,
+}
+    tao_1 = tao_map.get(args.dataset, 0.8)
+    tao_2 = tao_map.get(args.dataset, 0.8)
+    tao_3 = tao_map.get(args.dataset, 0.8)
 
     res_list_acc = []
     share_list_acc = []
