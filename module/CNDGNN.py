@@ -275,13 +275,13 @@ class CNDGNN(nn.Module):
         Z = torch.cat(H_list, dim=1)
         Z = F.dropout(Z, self.dropout, training=self.training)
         C = self.fc_layers[-1](Z)
-        C = F.softmax(C, dim=1)
         return Z, C
 
     def test(self, X, adj, A_1,A,labels, index_list):
         self.eval()
         with torch.no_grad():
             Z, C = self.forward(X, adj, A_1,A)
+            C = F.softmax(C,dim=1)
             y_pred = torch.argmax(C, dim=1)
         acc_list = []
         for index in index_list:
@@ -303,6 +303,7 @@ class CNDGNN(nn.Module):
 
         with torch.no_grad():
             Z, C = self.forward(X, adj, A_1,A)
+            C = F.softmax(C,dim=1)
             C = C[:X.shape[0]]
             y_pred = torch.argmax(C, dim=1)
 
